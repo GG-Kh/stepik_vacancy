@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+  Создать резюме | Джуманджи
+
+{% endblock %}
+
+{% block content %}
+
+<style>
+  body {
+    background-color: #F6F2E6;
+  }
+</style>
+
+  <main class="container mt-3 pb-5">
+    <section class="col-12 col-lg-6 offset-lg-3 mt-5 card">
+      <div class="card-body px-3 pb-4">
+        <h1 class="h4 pt-2 pb-3">Мое резюме</h1>
+        <!-- <p class="alert alert-info" role="alert">Ваше резюме обновлено!</p> -->
+        <form method="POST">
+
+          {% csrf_token %}
+
+          <div class="row">
+            
+            <div class="col-12 col-md-6">
+              <div class="form-group pb-2">
+                <label class="mb-2 text-dark" for="name">Имя</label>
+                <input class="form-control" type="text" value="{% if form.name.value != None %}{{ form.name.value }}{% endif %}" name="name" id="name">
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="form-group pb-2">
+                <label class="mb-2 text-dark" for="surname">Фамилия</label>
+                <input class="form-control" type="text" value="{% if form.surname.value != None %}{{ form.surname.value }}{% endif %}" name="surname" id="surname">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <div class="form-group pb-2">
+                <label class="mb-2 text-dark" for="status">Готовность к работе</label>
+                {{ form.status }}
+                <!-- <select class="custom-select mr-sm-2" id="status">
+                  <option value="1" selected>Ищу работу</option>
+                  <option value="2">Рассматриваю предложения</option>
+                  <option value="3">Не ищу работу</option>
+                </select> -->
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="form-group pb-2">
+                <label class="mb-2 text-dark" for="salary">Ожидаемое вознаграждение</label>
+                <input class="form-control" type="text" value="{% if form.salary.value != None %} {{ form.salary.value }} {% endif %}" name="salary" id="salary">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <div class="form-group pb-2">
+                <label class="mb-2 text-dark" for="specialty">Специализация</label>
+                {{ form.specialty }}
+                <!-- <select class="custom-select mr-sm-2" name="specialty" id="specialty">
+                  <option value="backend" selected>Бэкенд</option>
+                  <option value="frontend">Фронтенд</option>
+                  <option value="gamedev">Геймдев</option>
+                  <option value="devops">Девопс</option>
+                  <option value="design">Дизайн</option>
+                  <option value="products">Продукты</option>
+                  <option value="management">Менеджмент</option>
+                  <option value="testing">Тестирование</option>
+                </select> -->
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="form-group pb-2">
+                <label class="mb-2 text-dark" for="grade">Квалификация</label>
+                {{ form.grade }}
+                <!-- <select class="custom-select mr-sm-2" name="grade" id="grade">
+                  <option value="lead" selected>Лид</option>
+                  <option value="senior">Синьор</option>
+                  <option value="middle">Миддл</option>
+                  <option value="junior">Джуниор</option>
+                  <option value="trainee">Стажер</option>
+                </select> -->
+              </div>
+            </div>
+          </div>
+          <div class="form-group pb-2">
+            <label class="mb-2 text-dark" for="education">Образование</label>
+            <textarea class="form-control text-uppercase" rows="4" name="education" id="education" style="color:#000;">{% if form.education.value != None %}{{ form.education.value }}{% endif %}</textarea>
+          </div>
+          <div class="form-group pb-2">
+            <label class="mb-2 text-dark" for="experience">Опыт работы</label>
+            <textarea class="form-control" rows="4" name="experience" id="experience" style="color:#000;">{% if form.experience.value != None %}{{ form.experience.value }}{% endif %}</textarea>
+          </div>
+          <div class="form-group pb-3">
+            <label class="mb-2 text-dark" for="portfolio">Ссылка на портфолио</label>
+            <!-- <input class="form-control" type="text" placeholder="{% if form.portfolio.value != None %}{{ form.portfolio.value }}{% endif %}" name="portfolio" id="portfolio"> -->
+            <input class="form-control" type="text" value="{% if form.portfolio.value != None %}{{ form.portfolio.value }}{% endif %}" name="portfolio" id="portfolio">
+          </div>
+          <div class="form-group">
+            <input type="submit" class="btn btn-info" value="Сохранить">
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+{% endblock %}
