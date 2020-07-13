@@ -267,6 +267,27 @@ class MyResumeCreateView(View):
         return redirect(reverse('myresume'))
 
 
+class SearchView(View):
+
+    def get(self, request):
+
+        print(request.GET.get('query'))
+
+        if request.GET.get('query'):
+
+            vacancies = Vacancy.objects.filter(
+                description__contains=request.GET.get('query'))
+
+            context = {
+                'vacancies': vacancies,
+                'value': request.GET.get('query')
+            }
+
+            return render(request, 'search.html', context=context)
+
+        return render(request, 'search.html')
+
+
 def handler404(request, *args, **kwargs):
     return HttpResponse('Страница не найдена!')
 

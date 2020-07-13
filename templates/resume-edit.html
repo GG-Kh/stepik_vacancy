@@ -22,9 +22,8 @@
         <form method="POST">
 
           {% csrf_token %}
-
+          
           <div class="row">
-            
             <div class="col-12 col-md-6">
               <div class="form-group pb-2">
                 <label class="mb-2 text-dark" for="name">Имя</label>
@@ -43,8 +42,8 @@
               <div class="form-group pb-2">
                 <label class="mb-2 text-dark" for="status">Готовность к работе</label>
                 {{ form.status }}
-                <!-- <select class="custom-select mr-sm-2" id="status">
-                  <option value="1" selected>Ищу работу</option>
+                <!-- <select class="custom-select mr-sm-2" name="status" id="status">
+                  <option value="1">Ищу работу</option>
                   <option value="2">Рассматриваю предложения</option>
                   <option value="3">Не ищу работу</option>
                 </select> -->
@@ -62,8 +61,8 @@
               <div class="form-group pb-2">
                 <label class="mb-2 text-dark" for="specialty">Специализация</label>
                 {{ form.specialty }}
-                <!-- <select class="custom-select mr-sm-2" name="specialty" id="specialty">
-                  <option value="backend" selected>Бэкенд</option>
+                <!-- <select class="custom-select mr-sm-2" name="specialty" id="id_specialty">
+                  <option value="backend">Бэкенд</option>
                   <option value="frontend">Фронтенд</option>
                   <option value="gamedev">Геймдев</option>
                   <option value="devops">Девопс</option>
@@ -78,8 +77,8 @@
               <div class="form-group pb-2">
                 <label class="mb-2 text-dark" for="grade">Квалификация</label>
                 {{ form.grade }}
-                <!-- <select class="custom-select mr-sm-2" name="grade" id="grade">
-                  <option value="lead" selected>Лид</option>
+                 <!-- <select class="custom-select mr-sm-2" name="grade" id="id_grade">
+                  <option value="lead">Лид</option>
                   <option value="senior">Синьор</option>
                   <option value="middle">Миддл</option>
                   <option value="junior">Джуниор</option>

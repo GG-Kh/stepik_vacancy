@@ -52,5 +52,9 @@ urlpatterns = [
     path(
         'myresume_create/',
         views.MyResumeCreateView.as_view(),
-        name='myresume_create')
+        name='myresume_create'),
+    path(
+        'search/',
+        views.SearchView.as_view(),
+        name='search')
     ]
