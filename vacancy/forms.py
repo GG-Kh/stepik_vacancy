@@ -45,9 +45,15 @@ class VacancyForm(forms.ModelForm):
 
 class ResumeForm(forms.ModelForm):
 
-    status = forms.ChoiceField(choices=Resume.STATUS_CHOICES)
-    specialty = forms.ChoiceField(choices=Resume.SPECIALTY_CHOICES)
-    grade = forms.ChoiceField(choices=Resume.GRADE_CHOICES)
+    status = forms.ChoiceField(
+        choices=Resume.STATUS_CHOICES,
+        widget=forms.Select(attrs={'class': 'form-control'}))
+    specialty = forms.ChoiceField(
+        choices=Resume.SPECIALTY_CHOICES,
+        widget=forms.Select(attrs={'class': 'form-control'}))
+    grade = forms.ChoiceField(
+        choices=Resume.GRADE_CHOICES,
+        widget=forms.Select(attrs={'class': 'form-control'}))
 
     class Meta:
 
